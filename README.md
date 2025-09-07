@@ -109,7 +109,7 @@ bin/dev   # or rails server
 - View events you’ve created or are attending on your profile page.
 - Events are displayed as past or upcoming based on their dates.
 
-## Extra Credit Features
+## Extra Credit 
 
 - Edit or delete events created by the user.
 - Remove oneself from an attended event.
