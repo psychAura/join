@@ -50,3 +50,67 @@ class User < ApplicationRecord
   has_many :attended_events, through: :attendances, source: :event
 end
 
+
+
+## Models
+
+```ruby
+class Event < ApplicationRecord
+  belongs_to :creator, class_name: "User"
+  has_many :attendances, dependent: :destroy
+  has_many :attendees, through: :attendances, source: :user
+end
+```
+
+```ruby
+class Attendance < ApplicationRecord
+  belongs_to :user
+  belongs_to :event
+end
+```
+
+## Setup & Installation
+
+### Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/private-events.git
+cd private-events
+```
+
+### Install dependencies:
+
+```bash
+bundle install
+yarn install
+```
+
+### Set up the database:
+
+```bash
+rails db:create db:migrate db:seed
+```
+
+### Start the Rails server:
+
+```bash
+bin/dev   # or rails server
+```
+
+### Open the app in your browser:
+
+[http://localhost:3000](http://localhost:3000)
+
+## Usage
+
+- Sign up as a user.
+- Create new events and specify a date and location.
+- Invite other users to your events (attendance management).
+- View events you’ve created or are attending on your profile page.
+- Events are displayed as past or upcoming based on their dates.
+
+## Extra Credit Features
+
+- Edit or delete events created by the user.
+- Remove oneself from an attended event.
+- Toggle event visibility between public and private.
