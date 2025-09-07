@@ -1,0 +1,14 @@
+<h1>Welcome to Join</h1>
+
+<p>Schedule and create your exciting events with ease</p>
+
+<% if @events.any? %>
+  <% @events.each do |event| %>
+    <p>
+      <strong><%= event.title %></strong> - 
+      <%= event.date %> at <%= event.location %>
+    </p>
+  <% end %>
+<% else %>
+  <p>No events available.</p>
+<% end %>
